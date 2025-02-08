@@ -14,16 +14,6 @@ public class AutorService {
         return "O autor: " + autor.getNomeCompleto() + " foi salvo com sucesso ";
     }
 
-    public List<Autor> findAll() {
-
-        List<Autor> autorList = new ArrayList<>();
-
-        autorList.add(new Autor(1,"Joao",30));
-        autorList.add(new Autor(2,"Maria",25));
-        autorList.add(new Autor(3,"Pedro",28));
-        return autorList;
-    }
-
     public Autor findById(long id) {
 
         Autor autor = new Autor(1,"Luan",40);
@@ -33,6 +23,16 @@ public class AutorService {
         } else {
             return null;
         }
+    }
+
+    public List<Autor> findAll() {
+
+        List<Autor> autorList = new ArrayList<>();
+
+        autorList.add(new Autor(1,"Joao",30));
+        autorList.add(new Autor(2,"Maria",25));
+        autorList.add(new Autor(3,"Pedro",28));
+        return autorList;
     }
 
     public String update(Autor autor,Long id) {
