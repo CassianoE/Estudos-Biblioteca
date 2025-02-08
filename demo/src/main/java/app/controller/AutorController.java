@@ -34,11 +34,11 @@ public class AutorController {
             Autor autor = this.autorService.findById(id);
             return new ResponseEntity<>(autor, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 
-    @GetMapping("/findaAll")
+    @GetMapping("/findAll")
     public ResponseEntity<List<Autor>> findAll() {
         try {
             List<Autor> lista = this.autorService.findAll();
