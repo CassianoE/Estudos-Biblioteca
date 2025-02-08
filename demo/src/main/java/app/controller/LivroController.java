@@ -16,7 +16,7 @@ public class LivroController {
     @Autowired
     private LivroService livroService;
 
-    @RequestMapping("save")
+    @RequestMapping("/save")
     public ResponseEntity<String> save(@RequestBody Livro livro){
         try {
             String mensagem = this.livroService.save(livro);
