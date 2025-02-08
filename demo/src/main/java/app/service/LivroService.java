@@ -32,10 +32,10 @@ public class LivroService {
 
         List<Livro> livroList = this.livroRepository.findAll();
         return livroList;
-
     }
 
     public String update(Livro livro, Long id){
+
         livro.setId(id);
         this.livroRepository.save(livro);
         return "Livro atualizado com sucesso!";
