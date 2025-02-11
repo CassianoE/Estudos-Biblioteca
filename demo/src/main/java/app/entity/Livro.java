@@ -1,14 +1,13 @@
 package app.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.web.WebProperties;
+
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -23,5 +22,12 @@ public class Livro {
     private String titulo;
     private int anoPublicacao;
     private String genero;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "autor_id")
+    private Autor autor;
+
+    @ManyToMany(mappedBy = "livrosList",cascade = CascadeType.ALL)
+    private List<Biblioteca> bibliotecaList;
 
 }

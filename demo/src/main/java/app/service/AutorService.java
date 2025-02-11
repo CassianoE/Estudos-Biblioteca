@@ -1,6 +1,7 @@
 package app.service;
 
 import app.entity.Autor;
+import app.entity.Livro;
 import app.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,12 @@ public class AutorService {
     private AutorRepository autorRepository;
 
     public String save(Autor autor) {
+
+        if (autor.getLivroList() != null) {
+            for (Livro livro : autor.getLivroList()) {
+                livro.setAutor(autor);
+            }
+        }
 
         this.autorRepository.save(autor);
 
